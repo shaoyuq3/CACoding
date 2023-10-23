@@ -2,21 +2,28 @@ package interface_adapter.clear_users;
 
 // TODO Complete me
 
-import interface_adapter.signup.SignupState;
-import interface_adapter.signup.SignupViewModel;
+import use_case.clear_users.ClearOutputBoundary;
+import use_case.clear_users.ClearOutputData;
 
-public class ClearPresenter {
-    private final SignupViewModel signupViewModel;
 
-    // Constructor to inject the SignupViewModel
-    public ClearPresenter(SignupViewModel signupViewModel) {
-        this.signupViewModel = signupViewModel;
+public class ClearPresenter implements ClearOutputBoundary {
+
+    private final ClearViewModel clearViewModel;
+
+    public ClearPresenter(ClearViewModel clearViewModel){
+        this.clearViewModel = clearViewModel;
     }
 
-    // Method to be called when the clear action is triggered from the view
-    public void onClearAction() {
-        // Clear the data in the ViewModel
-        SignupState clearedState = new SignupState();
-        signupViewModel.setState(clearedState);
+    @Override
+    public void prepareSuccessView(ClearOutputData user){
+        ClearState clearState = clearViewModel.getState();
+        clearState.setUserAccount(user.getname());
+        this.clearViewModel.setClearState(clearState);
+        clearViewModel.firePropertyChanged();
+    }
+
+    @Override
+    public void presentClearUsersOutput(ClearOutputData outputData) {
+
     }
 }

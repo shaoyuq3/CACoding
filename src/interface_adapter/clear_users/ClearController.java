@@ -2,19 +2,17 @@ package interface_adapter.clear_users;
 
 import interface_adapter.signup.SignupState;
 import interface_adapter.signup.SignupViewModel;
+import use_case.clear_users.ClearInputBoundary;
 
 // TODO Complete me
 public class ClearController {
-    private final SignupViewModel signupViewModel;
+    final ClearInputBoundary clearUseCaseInteractor;
 
-    // Constructor to inject the SignupViewModel
-    public ClearController(SignupViewModel signupViewModel) {
-        this.signupViewModel = signupViewModel;
+    public ClearController(ClearInputBoundary clearUseCaseInteractor){
+        this.clearUseCaseInteractor = clearUseCaseInteractor;
     }
 
-    // Public method to clear user data
-    public void clearAllUserData() {
-        SignupState clearedState = new SignupState();
-        signupViewModel.setState(clearedState);
+    public void execute(){
+        clearUseCaseInteractor.execute();
     }
 }

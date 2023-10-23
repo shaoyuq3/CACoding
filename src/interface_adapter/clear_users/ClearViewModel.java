@@ -2,11 +2,21 @@ package interface_adapter.clear_users;
 
 // TODO Complete me
 
+import interface_adapter.ViewModel;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class ClearViewModel {
+public class ClearViewModel extends ViewModel{
+
+
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+
+    private ClearState state = new ClearState();
+
+    public ClearViewModel() {
+        super("clear");
+    }
 
 
     private ClearState clearState;
@@ -15,9 +25,6 @@ public class ClearViewModel {
     public static final String CLEAR_SUCCESS_MESSAGE = "Users cleared successfully!";
     public static final String CLEAR_FAILURE_MESSAGE = "Failed to clear users.";
 
-    public ClearViewModel() {
-        this.clearState = new ClearState();
-    }
 
     public ClearState getClearState() {
         return clearState;
@@ -30,6 +37,11 @@ public class ClearViewModel {
     }
 
 
+    @Override
+    public void firePropertyChanged() {
+
+    }
+
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         support.addPropertyChangeListener(listener);
     }
@@ -38,4 +50,10 @@ public class ClearViewModel {
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         support.removePropertyChangeListener(listener);
     }
+
+    public ClearState getState() {
+        return state;
+    }
+
+
 }
