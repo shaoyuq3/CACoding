@@ -6,6 +6,7 @@ public class ClearInputData {
     private int daysInactive;
 
     public ClearInputData() {
+
     }
     public ClearInputData(int daysInactive) {
         this.daysInactive = daysInactive;
