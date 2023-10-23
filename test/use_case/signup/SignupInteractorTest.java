@@ -1,4 +1,4 @@
-package use_case.signup;
+package CACoding.test.use_case.signup;
 
 import data_access.InMemoryUserDataAccessObject;
 import entity.CommonUserFactory;

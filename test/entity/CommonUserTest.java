@@ -1,4 +1,4 @@
-package entity;
+package CACoding.test.entity;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CommonUserTest {
 
-    private CommonUser user;
+    private entity.CommonUser user;
 
     @BeforeEach
     void init() {
-        user = new CommonUser("Paul", "password", LocalDateTime.now());
+        user = new entity.CommonUser("Paul", "password", LocalDateTime.now());
     }
 
     @Test
