@@ -1,6 +1,5 @@
 package interface_adapter.clear_users;
 
-// TODO Complete me
 
 import java.util.ArrayList;
 
